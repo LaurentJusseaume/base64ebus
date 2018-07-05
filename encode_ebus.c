@@ -13,7 +13,7 @@
 
 #include "b64.h"
 
-#define INDEX_OF_NN 3
+#define INDEX_OF_NN 4
 
 typedef enum
 {
@@ -29,6 +29,7 @@ typedef enum
 
 static char* prompt[] =
 {
+    "QQ",
     "ZZ",
     "PB",
     "SB",
@@ -128,8 +129,6 @@ int is_end_of_encode_loop(Format_type_e format, int idx, char value)
       printf("NN=%d\n", NN);
     }
 
-    printf("idx=%d NN=%d\n", idx, NN);
-
     if (idx == INDEX_OF_NN + NN)
     {
       printf("idx>4+NN\n");
@@ -164,6 +163,8 @@ main (int argc, char *argv[]) {
     int           idx2        = 0;
     unsigned char value       = 0;
     char          *new_buffer = NULL;
+
+    memset(buffer, 0, 100);
 
     printf("encode\nenter values in hexadecimal (without 0x)\n");
     printf("type '.' to stop entering data\n");
