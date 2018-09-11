@@ -44,6 +44,12 @@ static char* prompt[] =
     "DATA[7]",
     "DATA[8]",
     "DATA[9]",
+    "DATA[10]",
+    "DATA[11]",
+    "DATA[12]",
+    "DATA[13]",
+    "DATA[14]",
+    "DATA[15]",
 };
 
 unsigned char nibble_to_int(char nibble)
@@ -119,9 +125,9 @@ int is_end_of_encode_loop(Format_type_e format, int idx, char value)
   {
     if (idx == INDEX_OF_NN)
     {
-      if (value>10)
+      if (value>0x10)
       {
-        printf("NN cannot be greater than 10\n");
+        printf("NN cannot be greater than 0x10\n");
         //TODO: que faire
         return 1;
       }
@@ -131,7 +137,7 @@ int is_end_of_encode_loop(Format_type_e format, int idx, char value)
 
     if (idx == INDEX_OF_NN + NN)
     {
-      printf("idx>4+NN\n");
+      //printf("idx>4+NN\n");
       return 1;
     }
   }
